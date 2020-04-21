@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://thymeleaf.org">
+    <title>Coursedetail</title>
+    <style>
+        table, th, td {
+border: 1px solid black;
+}
+    </style>
+</head>
+
+<body>
+<h2>Course Detail</h2><br>
+<hr><br>
+
+    <form action="/newhome/login/admin2" method="post">
+        <div align="center" th:each="c:${course}">
+            <div><label for><b>Course Name:</b></label>
+                <input type="text" name="coname" th:value="${c.coname}" required></div><br>
+            <div><label for><b>CourseID:</b></label>
+                <input type="text"  name="cid" th:value="${c.cid}" readonly></div><br>
+            <div><label for><b>Course Duration</b></label>
+                <input type="text" name="cduration" th:value="${c.cduration}"required></div><br>
+            <div><label for><b>Starting Date:</b></label>
+                <input type="text" name="csdate" th:value="${c.csdate}" required></div><br>
+            <div><label for><b>Course Briefing:</b></label>
+                <input type="text" name="cbrief" th:value="${c.cbrief}" required></div><br>
+            <div><label for><b>Course Details:</b></label>
+                <input type="text" name="cdtail" th:value="${c.cdetail}" required></div><br>
+        <button formaction="/newhome/login/admin2" style="margin:15px;font-size:15px" type="submit" onclick="myfunction()"> Update</button>
+    </form>
+            <form action="/newhome/login/admin/coursedetails" method="get">
+        <button type="submit" formaction="/newhome/login/admin/coursedetails"  style="margin:15px;font-size:15px">Course List</button>
+
+    </div>
+    </form>
+    <br>
+
+
+
+
+<script>
+function myfunction() {
+  alert("Updated Successfully");
+}
+</script>
+</body>
+</html>

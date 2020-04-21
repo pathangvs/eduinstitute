@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adminpage</title>
+    <style>
+ {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+  column-rule: 4px double #ff00ff;
+}
+
+.right{
+width:50%
+}
+
+.left{
+width:50%
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.wrapper {
+    text-align: left;
+}
+
+.button {
+    position: absolute;
+
+}
+</style>
+</head>
+<body>
+<div class="header"><h1>Admin Page</h1></div>
+<br><br>
+
+
+<form action="/newhome" method="get">
+    <form action="/newhome/newcourse" method="get">
+        <form action="/newhome/newcourse/contact" method="get">
+            <form action="/newhome/newcourse/login" method="get">
+                <nav style="background-color:Blue">
+                    <div>
+                        <article>
+                            <p>
+                                <button formaction="/newhome" type="submit">Home</button>
+                                <button formaction="/newhome/newcourse" type="submit">Courses</button>
+                                <button formaction="/newhome/newcourse/contact" type="submit">Contact Us</button>
+                                <button formaction="/newhome/newcourse/login" type="submit">Logout</button>
+                            </p>
+                        </article>
+                    </div>
+                </nav>
+            </form></form></form></form>
+<br>
+<form action="/newhome/login/admin/coursedetails" method="get">
+<form action="/newhome/login/admin/activecourse" method="get">
+    <button  formaction="/newhome/login/admin/coursedetails" style="margin:15px;font-size:15px" type="submit" >Course List</button>
+    <button  formaction="/newhome/login/admin/activecourse" style="margin:15px;font-size:15px" type="submit" >Active Courses</button>
+
+    </div>
+</form></form>
+<form action="/newhome/login/admin" method="post">
+
+    <div class="column" >
+        <h2 align="center">Course Details</h2>
+        <hr>
+        <br>
+        <div><label for><b>Course ID:</b></label>
+            <input type="text" name="cid" required></div><br>
+        <div><label for><b>Course Name:</b></label>
+            <input  type="text"  name="coname" required></div><br>
+        <div><label for><b>Course Duration:</b></label>
+            <input type="text"  name="cduration" required></div><br>
+        <div><label for><b>Starting Date:</b></label>
+            <input type="text" name="csdate" required></div><br>
+        <div><label for><b>Course briefing:</b></label>
+            <input type="text" name="cbrief" ></div><br>
+        <div><label for><b>Course Details:</b></label>
+            <textarea type="text" name="cdetail" ></textarea></div><br>
+        <div><label for><b>Active Course:</b></label>
+            <input type="checkbox" name="cflag" value="1"></input></div><br>
+
+
+        <button formaction="/newhome/login/admin" style="margin:15px;font-size:15px" type="submit" onclick="myfunction()">Add Course</button></div></form>
+
+<script>
+function myfunction() {
+  alert("Added Successfully");
+}
+</script>
+<form action="/newhome/login/admin/enquirydetails" method="get">
+    <div align="center">
+        <h2 align="center">Enquiry</h2>
+        <br>
+        <button formaction="/newhome/login/admin/enquirydetails" style="margin:15px;font-size:15px" type="submit" >View Enquiries</button>
+
+    </div>
+</form>
+<hr>
+<form action="/newhome/login/admin/userdetails" method="get">
+    <div align="center">
+        <h2 align="center">User</h2>
+        <br>
+        <button style="margin:15px;font-size:15px" type="submit" >Add User</button>
+        <button formaction="/newhome/login/admin/userdetails" style="margin:15px;font-size:15px" type="submit" >View Users</button>
+    </div>
+</form>
+</body>
+</html>

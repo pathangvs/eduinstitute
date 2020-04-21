@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="UTF-8">
+    <title>Enquirydetails</title>
+    <style>
+        table, th, td {
+border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+<div class="header"><h2>Enquiry Details</h2></div>
+<hr>
+<br>
+<div align="center">
+<table>
+    <tr>
+        <th>Course ID </th>
+        <th>Enquiry ID </th>
+        <th>Name </th>
+        <th>Mobile Number </th>
+        <th>Email </th>
+        <th>Qualification </th>
+        <th></th>
+    </tr>
+
+    <tr th:each="e:${enquiry}">
+        <td th:text="${e.cid}"></td>
+        <td th:text="${e.eid}"></td>
+        <td th:text="${e.ename}"></td>
+        <td th:text="${e.enumber}"></td>
+        <td th:text="${e.eemail}"></td>
+        <td th:text="${e.equalification}"></td>
+        <td><a th:href="@{'/delete/'+${e.eemail}}" onclick="myfunction()">  Delete</a></td>
+    </tr>
+</table>
+    <br>
+    <form action="/newhome/login/admin" method="get">
+        <button formaction="/newhome/login/admin">Admin Home</button></form>
+</div>
+<script>
+
+function myfunction() {
+  alert("Deleted Successfully");
+}
+</script>
+</body>
+</html>

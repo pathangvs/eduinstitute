@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Userpage</title>
+</head>
+<style>
+ *{
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+
+}
+
+.right{
+width:50%
+}
+
+.left{
+width:50%
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<body>
+<br>
+<h1 style="background-color:lightgreen;padding:20px; text-align: center">User Page</h1>
+<br>
+
+<form action="/newhome" method="get">
+    <form action="/newhome/course" method="get">
+        <form action="/newhome/course/contact" method="get">
+                <nav style="background-color:violet">
+                    <div>
+                        <article>
+                            <p>
+                                <button formaction="/newhome" type="submit">Home</button>
+                                <button formaction="/newhome/course" type="submit">Courses</button>
+                                <button formaction="/newhome/course/contact" type="submit">Contact Us</button>
+
+                            </p>
+                        </article>
+                    </div>
+                </nav>
+        </form></form></form>
+<hr>
+
+<div class="column" >
+    <h2>Courses</h2>
+    <hr>
+    <br><br>
+    <button style="margin:15px;font-size:15px">Course Details</button>
+    <button formaction="/newhome/course" type="submit" style="margin:15px;font-size:15px">Apply for New</button>
+
+
+    <br>
+</div>
+<div class="column">
+    <div align="right" th:each="u:${user}">
+        <label>Welcome :</label>
+        <input type="text" name="uname" th:value="${u.uname}" readonly>
+             <form action="/newhome/newcourse/login" method="get">
+                 <a href="changepassword.html">Change Password</a>
+            <button formaction="/newhome/newcourse/login" style="margin:15px;font-size:15px" >Logout</button></form>
+    </div>
+    <br><br><br><br>
+    <h2 style="text-align: center">Fee Payment</h2>
+    <br>
+    <button onclick=" document.location = 'home.html'" style="margin:15px;font-size:15px" type="Fee Payment" value="">Fee Payment</button>
+</div>
+</body>
+</html>

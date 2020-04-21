@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <style>
+    .column{
+          float: left;
+        width: 25%;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1 style="background-color:indigo;text-align:center;color:white;padding:30px">Courses Offering</h1><hr>
+<form action="/newhome" method="get">
+    <form action="/newhome/newcourse" method="get">
+        <form action="/newhome/newcourse/contact" method="get">
+            <form action="/newhome/newcourse/login" method="get">
+                <nav style="background-color:violet">
+                <div>
+                <article>
+                <p>
+                <button formaction="/newhome" type="submit">Home</button>
+                <button formaction="/newhome/newcourse" type="submit">Courses</button>
+                <button formaction="/newhome/newcourse/contact" type="submit">Contact Us</button>
+                <button formaction="/newhome/newcourse/login" type="submit">Login/Signup</button>
+                </p>
+        </article>
+    </div>
+</nav>
+            </form></form></form></form>
+<hr>
+<form action="/newhome/newcourse/contact" method="get">
+    <form action="/newhome/newcourse/login" method="get">
+<div class="column" th:each="c:${activecourse}" style="background-color:cyan;padding:20px";>
+        <article>
+        <p >
+            <h3 th:text="${c.coname}" align="center"></h3><br>
+            <label hidden><b>Starting date : </b></label><label th:text="${c.cid}" hidden></label><br>
+            <label><b>Starting date : </b></label><label th:text="${c.csdate}"></label><br>
+            <label><b>Course Duration : </b></label><label th:text="${c.cduration}"></label><br>
+            <label><b>Course Detail : </b> </label><label th:text="${c.cdetail}"></label><br>
+    <button formaction="/newhome/newcourse/login" th:value="${c.cid}" type="submit">Apply Now</button>
+    <button formaction="/newhome/newcourse/contact" th:value="${c.cid}" type="submit">Enquire Now</button>
+
+    </article>
+    </p>
+</div>
+    </form></form>
+</body>
+</html>

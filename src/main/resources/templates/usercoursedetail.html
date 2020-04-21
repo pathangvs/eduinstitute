@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta  content="text/html" http-equiv="Content-Type"  charset="UTF-8">
+    <title>Usercoursedetails</title>
+    <style>
+        table, th, td {
+border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+<h2>User Course Details</h2><br>
+<hr><br>
+<form action="/newhome/courses" method="get"><div align="center">
+    <form action="/newhome/login/admin/coursedetails">
+        <table>
+            <tr>
+                <th>Course ID </th>
+                <th>Course Duration </th>
+                <th>Course Name </th>
+                <th>Starting Date </th>
+                <th>Course Briefing </th>
+                <th>Course Detail </th>
+                <th></th>
+            </tr>
+
+            <tr th:each="c:${course}">
+                <td th:text="${c.cid}"></td>
+                <td th:text="${c.cduration}"></td>
+                <td th:text="${c.coname}"></td>
+                <td th:text="${c.csdate}"></td>
+                <td th:text="${c.cbrief}"></td>
+                <td th:text="${c.cdetail}"></td><td><a th:href="@{'/delete/'+${c.cid}}" onclick="myfunction()">  Delete</a></td>
+            </tr>
+        </table><br>
+
+        <button formaction="/newhome/login/admin/coursedetails"  style="margin:15px;font-size:15px" type="submit">Home</button>
+
+
+        <button formaction="/newhome/courses"  style="margin:15px;font-size:15px" type="submit">Apply new course</button>
+</div>
+</form></form>
+
+<script>
+function myfunction() {
+  alert("Deleted Successfully");
+}
+function activate() {
+  alert("Activated Successfully");
+}
+function deactivate() {
+  alert("Deactivated Successfully");
+}
+</script>
+</body>
+</html>

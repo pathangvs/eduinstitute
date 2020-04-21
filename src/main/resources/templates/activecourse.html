@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta  content="text/html" http-equiv="Content-Type"  charset="UTF-8">
+    <title>Activecourses</title>
+    <style>
+        table, th, td {
+border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+<h2>Active Courses</h2><br>
+<hr><br>
+<form action="/newhome/login/admin" method="get"><div align="center">
+    <form action="/newhome/login/admin/coursedetails">
+        <div>
+<table>
+    <tr>
+        <th>Course ID </th>
+        <th>Course Name </th>
+        <th>Course Status</th>
+
+    </tr>
+
+    <tr th:each="c:${activecourse}">
+        <td th:text="${c.cid}"></td>
+        <td th:text="${c.coname}"></td>
+        <td th:text="${c.cflag}"></td>
+
+    </tr>
+</table><br>
+
+    <button formaction="/newhome/login/admin/coursedetails"  style="margin:15px;font-size:15px" type="submit">Course List</button>
+       <button formaction="/newhome/login/admin"  style="margin:15px;font-size:15px" type="submit">Add Course</button>
+</div></form>
+</form>
+
+
+</body>
+</html>

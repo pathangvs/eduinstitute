@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contactus</title>
+    <style>
+ *{
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+
+.right{
+width:50%
+}
+
+.left{
+width:50%
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+<div class="header"><h1>Contact Page</h1></div>
+<br><br>
+
+<form action="/newhome" method="get">
+    <form action="/newhome/newcourse" method="get">
+            <form action="/newhome/newcourse/login" method="get">
+                <nav style="background-color:violet">
+                    <div>
+                        <article>
+                            <p>
+                                <button formaction="/newhome" type="submit">Home</button>
+                                <button formaction="/newhome/newcourse" type="submit">Courses</button>
+                                <button formaction="/newhome/newcourse/login" type="submit">Login/Signup</button>
+                            </p>
+                        </article>
+                    </div>
+                </nav>
+            </form></form></form>
+
+<div class="column" >
+    <article><br><br><br><br><br>
+    <h2>Contact Us</h2>
+    <p>
+        Expertzlab, 2nd Floor, ACT Chambers,<br>
+        MKK Nair Road ( Palarivattom - Kaloor Rd), Palarivattom,<br>
+        Landmark: Axis Bank Palarivattom, Kochi, Kerala 682025<br>
+        <hr>
+        Phone : 9988776655,
+        Email :enquiry@expertzlabz.co.in
+    </p>
+    </article>
+</div>
+<form action="/newhome/contact/enquiry" method="post">
+    <div class="column" >
+        <h2 align="center"> Enquiry</h2>
+        <hr>
+        <br>
+
+        <div><label><b>Name:</b></label>
+            <input type="text" name="ename" required></div><br>
+        <div><label><b>Qualification:</b></label>
+            <input type="text"  name="equalification" required></div><br>
+        <div><label><b>Mobile Number:</b></label>
+            <input type="text"  name="enumber" required></div><br>
+        <div><label><b>Email:</b></label>
+            <input type="email"  name="eemail" required></div><br>
+        <div th:each="c:${course}" ><label><b>Course ID: </b></label>
+            <input  type="text"  name="cid" th:value="${c.cid}"  readonly></div><br>
+        <button style="margin:15px;font-size:15px" type="submit" onclick="myfunction()" >Submit</button>
+    </div>
+</form>
+<script>
+function myfunction() {
+  alert("Submitted Successfully");
+}
+</script>
+</body>
+</html>

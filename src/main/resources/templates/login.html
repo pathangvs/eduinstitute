@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>loginpage</title>
+    <style>
+ *{
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+
+.right{
+width:50%
+}
+
+.left{
+width:50%
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+</head>
+<body>
+<div class="header"><h1>Login Page</h1></div>
+<br><br>
+
+<form action="/newhome" method="get">
+    <form action="/newhome/newcourse" method="get">
+        <form action="/newhome/newcourse/contact" method="get">
+
+                <nav style="background-color:violet">
+                    <div>
+                        <article>
+                            <p>
+                                <button formaction="/newhome" type="submit">Home</button>
+                                <button formaction="/newhome/newcourse" type="submit">Courses</button>
+                                <button formaction="/newhome/newcourse/contact" type="submit">Contact Us</button>
+
+                            </p>
+                        </article>
+                    </div>
+                </nav>
+        </form></form></form>
+<div class="column">
+<form action="/newhome/newcourse/login" method="post" >
+    <label for><b>Email:</b></label>
+    <input type="email" placeholder="Enter Email" name="uemail" required>
+    <br><br>
+    <label for><b>Password:</b></label>
+    <input type="password" placeholder="Enter Password" name="upassword" required><br>
+    <br>
+    <input type="submit" value="Login">
+</form>
+<br>
+<form action="/home/forgetpasswordhome " method="get">
+    <br>
+    <button formaction="/home/forgetpasswordhome">Forget Password?</button>
+    <!-- <a href="/home/forgetpassword.html">Forgot Password?</a>-->
+</form>
+</div>
+<form action="/newhome/login/signup" method="post">
+    <div class="column">
+        <h2 align="center">New User?</h2>
+        <hr>
+        <br>
+        <div><label for><b>Name:</b></label>
+            <input type="text" name="uname" required></div><br>
+        <div><label for><b>Mobile Number:</b></label>
+            <input  type="text"  name="unumber" required></div><br>
+        <div><label for><b>Email:</b></label>
+            <input type="email"  name="uemail" placeholder="Enter Email"required></div><br>
+        <div><label for><b>Password:</b></label>
+            <input type="password" placeholder="Enter Password" name="upassword" id="txtPassword" required></div><br>
+        <div><label for><b>Confirm Password:</b></label>
+            <input type="password" placeholder="Confirm Password" name="cpassword" id="txtConfirmPassword" required></div><br>
+        <button formaction="/newhome/login/signup" style="margin:15px;font-size:15px" type="submit" onclick="Validate();myfunction()">SignUp</button>
+    </div>
+</form>
+<script type="text/javascript">
+function Validate() {
+var password = document.getElementById("txtPassword").value;
+var confirmPassword = document.getElementById("txtConfirmPassword").value;
+if (password != confirmPassword) {
+alert("Passwords do not match.");
+return false;
+}
+return true;
+}
+
+
+function myfunction() {
+  alert("Signup Successfully");
+}
+</script>
+
+</body>
+</html>

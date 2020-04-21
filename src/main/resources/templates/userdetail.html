@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://thymeleaf.org">
+    <title>Coursedetail</title>
+    <style>
+        table, th, td {
+border: 1px solid black;
+}
+    </style>
+</head>
+
+<body>
+<h2>User Detail</h2><br>
+<hr><br>
+
+    <form action="/newhome/login/admin2" method="post">
+        <div align="center" th:each="u:${user}">
+            <div><label for><b>User ID :</b></label>
+                <input type="text" name="uid" th:value="${u.uid}" required></div><br>
+            <div><label for><b>User Name :</b></label>
+                <input type="text"  name="uname" th:value="${u.uname}" readonly></div><br>
+            <div><label for><b>Mobile Number :</b></label>
+                <input type="text" name="unumber" th:value="${u.unumber}"required></div><br>
+            <div><label for><b>Email :</b></label>
+                <input type="text" name="uemail" th:value="${u.uemail}" required></div><br>
+            <button formaction="/newhome/login/admin2" style="margin:15px;font-size:15px" type="submit" onclick="myfunction()"> Update</button>
+    </form>
+            <form action="/newhome/login/admin/userdetails" method="get">
+        <button type="submit" formaction="/newhome/login/admin/userdetails"  style="margin:15px;font-size:15px">User List</button>
+
+    </div>
+    </form>
+    <br>
+
+
+<script>
+function myfunction() {
+  alert("Updated Successfully");
+}
+</script>
+</body>
+</html>

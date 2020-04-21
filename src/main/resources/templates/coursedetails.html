@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta  content="text/html" http-equiv="Content-Type"  charset="UTF-8">
+    <title>Coursedetails</title>
+    <style>
+        table, th, td {
+border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+<h2>Course Details</h2><br>
+<hr><br>
+<form action="/newhome/login/admin" method="get"><div align="center">
+    <form action="/newhome/login/admin/coursedetails">
+<table>
+    <tr>
+        <th>Course ID </th>
+        <th>Course Duration </th>
+        <th>Course Name </th>
+        <th>Starting Date </th>
+        <th>Course Briefing </th>
+        <th>Course Detail </th>
+        <th>Course Status </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    <tr th:each="c:${course}">
+        <td th:text="${c.cid}"></td>
+        <td th:text="${c.cduration}"></td>
+        <td th:text="${c.coname}"></td>
+        <td th:text="${c.csdate}"></td>
+        <td th:text="${c.cbrief}"></td>
+        <td th:text="${c.cdetail}"></td>
+        <td th:text="${c.cflag}"></td>
+        <td><a th:href="@{'/newhome/login/admin/coursedetail/activate/'+${c.cid}}" onclick="activate()"> Activate  </a></td>
+        <td><a th:href="@{'/newhome/login/admin/coursedetail/deactivate/'+${c.cid}}" onclick="deactivate"> Deactivate  </a></td>
+        <td><a th:href="@{'/newhome/login/admin/coursedetail/'+${c.cid}}"> View Detail  </a></td>
+        <td><a th:href="@{'/delete/'+${c.cid}}" onclick="myfunction()">  Delete</a></td>
+    </tr>
+</table><br>
+
+    <button formaction="/newhome/login/admin/coursedetails"  style="margin:15px;font-size:15px" type="submit">Course List</button>
+
+
+    <button formaction="/newhome/login/admin"  style="margin:15px;font-size:15px" type="submit">Add Course</button>
+</div>
+</form></form>
+
+<script>
+function myfunction() {
+  alert("Deleted Successfully");
+}
+function activate() {
+  alert("Activated Successfully");
+}
+function deactivate() {
+  alert("Deactivated Successfully");
+}
+</script>
+</body>
+</html>
